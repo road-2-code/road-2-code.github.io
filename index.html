@@ -144,7 +144,8 @@ Neuro-symbolic Systems, 2025</em></a>
 				<div class="w3-center">
 					<h2>Abstract</h2>
 				</div>
-				<p>Translating real-world scenarios into simulation environments is essential for the safe, costeffective, and scalable development of autonomous vehicles. Simulations enable rigorous
+				<p>Translating real-world scenarios into simulation environments is essential for the safe, cost
+					effective, and scalable development of autonomous vehicles. Simulations enable rigorous
 testing of complex, rare, and hazardous scenarios, while also allowing for rapid iteration,
 data generation, and exposure to diverse conditions. However, the real-to-sim gap remains
 a significant challenge, as automated methods often fail to accurately capture real-world
@@ -153,8 +154,8 @@ realistic dynamics and unpredictable human behavior.</p>
 <p>
 In this work, we propose Road2Code, a framework that bridges the gap between
 real-world traffic data and simulation by leveraging neuro-symbolic program synthesis.
-Road2Code translates real-world driving scenarios into Scenic programs1 for the CARLA
-simulator2, utilizing large language models for code generation. To enhance efficiency, we
+Road2Code translates real-world driving scenarios into Scenic programs for the CARLA
+simulator, utilizing large language models for code generation. To enhance efficiency, we
 employ a distillation approach, where a large language teacher model generates reasoning
 processes that refine training for a smaller student model used for inference. Road2Code
 enhances simulation fidelity by accurately modeling real-world scenarios and agent behaviors while enabling scenario editing and counterfactual analysis, providing essential tools for
@@ -163,7 +164,7 @@ and simulation lays a foundation for advancing trustworthy and transparent auton
 driving research, accelerating progress toward reliable autonomous vehicle systems.</p>
 				<hr>
 				<div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
-					<h2>Model</h2>
+					<h2>Model Architecture</h2>
 					<img src="images/combined_model.png" style="width:90%">
 
 					<!-- <video controls style="width:100%" autoplay loop playsinline muted>
@@ -177,7 +178,7 @@ time, the generated program P from the video V is deployed in CARLA for evaluati
 				</div>
 
 				<div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
-					<h2>Demo Video</h2>
+					<h2>Demo Videos</h2>
 					<table class="column-table">
 						<tr>
 							<td>Real</td>
@@ -186,13 +187,13 @@ time, the generated program P from the video V is deployed in CARLA for evaluati
 						<tr>
 							<td>
 					            <video controls style="width:100%" autoplay loop playsinline muted>
-					            	<source src="videos/gnd2.mp4" type="video/mp4">
+					            	<source src="videos/gnd1.mp4" type="video/mp4">
 					            	Sorry, your browser doesn't support embedded videos.
 					            </video>
 							</td>
 							<td>
 					            <video controls style="width:100%" autoplay loop playsinline muted>
-					            	<source src="videos/out.mp4" type="video/mp4">
+					            	<source src="videos/out1.mp4" type="video/mp4">
 					            	Sorry, your browser doesn't support embedded videos.
 					            </video>
 							</td>
@@ -200,7 +201,7 @@ time, the generated program P from the video V is deployed in CARLA for evaluati
 						<tr>
 							<td>
 					            <video controls style="width:100%" autoplay loop playsinline muted>
-					            	<source src="videos/gnd.mp4" type="video/mp4">
+					            	<source src="videos/gnd2.mp4" type="video/mp4">
 					            	Sorry, your browser doesn't support embedded videos.
 					            </video>
 							</td>
@@ -222,28 +223,26 @@ time, the generated program P from the video V is deployed in CARLA for evaluati
 						Sorry, your browser doesn't support embedded videos.
 					</video>-->
 					<p>We evaluated our model on real-world scenes from the nuScenes
-and Waymo datasets, with visualizations shown in Figure 5. The generated scenarios closely
+and Waymo datasets, with visualizations shown in the figure. The generated scenarios closely
 match the real scenes, accurately preserving vehicle placements, road layouts, and weather
 conditions. </p>
 
 					<img src="images/scene_edit.png" style="width:70%">
-					<p>The Scenic program generated from Road2Code is highly editable. We showcase unexpected and unauthorized lane changes (top row) and oncoming traffic collisions (bottom). The bottom-right scenario is from nuScenes and others from Waymo dataset.</p>
+					<p>The Scenic program generated from Road2Code is highly editable. We showcase unexpected and unauthorized lane changes (top row) and oncoming traffic collisions (bottom). The bottom-right scenario is from nuScenes and others are from Waymo dataset.</p>
 
 					<img src="images/bg_results_2_col.png" style="width:70%">
-					<p>Real-world traffic scenes are translated to simulation using Road2Code. The
-simulated vehicles closely match real-world agents, with IoU scores between 0.6 and 0.7,
-indicating strong alignment between simulated and real bounding boxes.</p>
+					<p>We modify Road2Code to generate scenes for a variety of novel unseen scenarios, adjusting environment, weather conditions, and vehicle configurations.</p>
 
 
 					<img src="images/distillation.png" style="width:70%">
 					<p>
-	We evaluate visual error of our model with and without Chain-of-Thought distillation. We find that distillation improves SSIM by 5.4% and reduces MSE by 47.1%, lowering
+	We evaluate visual error of our model with and without Chain-of-Thought distillation. We find that distillation improves SSIM by 5.1% and reduces MSE by 47.1%, lowering
 errors across all metrics.
 					</p>
 
 					<img src="images/bbox_results.png" style="width:70%">
 					<p>Real-world traffic scenes are translated to simulation using Road2Code. The
-simulated vehicles closely match real-world agents, with IoU scores between 0.6 and 0.7,
+simulated vehicles closely match real-world agents, with high IoU scores,
 indicating strong alignment between simulated and real bounding boxes.</p>
 
 				</div>

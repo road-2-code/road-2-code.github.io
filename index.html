@@ -134,7 +134,7 @@
 Neuro-symbolic Systems, 2025</em></a>
 					</h5>
 					<h5 style="margin: 0"><strong>DARPA Disruptive Idea Award</strong></h5>
-					<h3>[<a href="./paper.pdf" target="_blank">Paper</a>]</h3>
+					<h3>[<a href="./paper.pdf" target="_blank">Paper</a>] &nbsp; [Code (coming soon)]</h3>
 					<img src="images/teaser.png" style="width:70%">
 				</div>
 
@@ -165,81 +165,66 @@ driving research, accelerating progress toward reliable autonomous vehicle syste
 				<hr>
 				<div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
 					<h2>Model Architecture</h2>
+					<p>Road2Code extracts vehicle tracks and translates their motions into Scenic programs. Using Zero-Shot Chain-of-Thought, a teacher model generates reasoning, which is
+integrated into fine-tuning prompts while training the program synthesizer. At inference
+time, the generated program P from the video V is deployed in CARLA for evaluation.</p>
 					<img src="images/combined_model.png" style="width:90%">
 
 					<!-- <video controls style="width:100%" autoplay loop playsinline muted>
 						<source src="videos/media1.mp4" type="video/mp4">
 						Sorry, your browser doesn't support embedded videos.
 					</video>-->
-					<p>Road2Code extracts vehicle tracks and translates their motions into Scenic programs. Using Zero-Shot Chain-of-Thought, a teacher model generates reasoning, which is
-integrated into fine-tuning prompts while training the program synthesizer. At inference
-time, the generated program P from the video V is deployed in CARLA for evaluation.</p>
 
 				</div>
+				<hr/>
 
 				<div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
-					<h2>Demo Videos</h2>
-		            <video controls style="width:100%" autoplay loop playsinline muted>
-		            	<source src="videos/comb1.mp4" type="video/mp4">
+					<h2>Demo Scenarios</h2>
+					<p>We evaluated our model on real-world scenes from the nuScenes
+and Waymo datasets. The generated scenarios closely
+match the real scenes, accurately preserving vehicle placements, road layouts, and weather
+conditions.</p><p>Click to play the videos.</p>
+		            <video controls style="width:80%" loop playsinline muted>
+		            	<source src="videos/demo1.mp4" type="video/mp4">
 		            	Sorry, your browser doesn't support embedded videos.
 		            </video>
-		            <video controls style="width:100%" autoplay loop playsinline muted>
-		            	<source src="videos/comb2.mp4" type="video/mp4">
+		            <video controls style="width:80%" loop playsinline muted>
+		            	<source src="videos/demo2.mp4" type="video/mp4">
 		            	Sorry, your browser doesn't support embedded videos.
 		            </video>
-				</div>
-				<hr>
-				<div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
-					<h2>Results</h2>
+					<hr/>
 					<img src="images/visual_results.png" style="width:70%">
 					<!-- <video controls style="width:100%" autoplay loop playsinline muted>
 						<source src="videos/media1.mp4" type="video/mp4">
 						Sorry, your browser doesn't support embedded videos.
 					</video>-->
-					<p>We evaluated our model on real-world scenes from the nuScenes
-and Waymo datasets, with visualizations shown in the figure. The generated scenarios closely
-match the real scenes, accurately preserving vehicle placements, road layouts, and weather
-conditions. </p>
 
+					<hr/>
+				</div>
+				<div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center">
+					<h2>Editability</h2>
+					<p>The Scenic program generated from Road2Code is highly editable. We showcase unexpected and unauthorized lane changes (top row) and oncoming traffic collisions (bottom). The bottom-right scenario is from nuScenes and the others are from Waymo.</p>
 					<img src="images/scene_edit.png" style="width:70%">
-					<p>The Scenic program generated from Road2Code is highly editable. We showcase unexpected and unauthorized lane changes (top row) and oncoming traffic collisions (bottom). The bottom-right scenario is from nuScenes and others are from Waymo dataset.</p>
 
-					<img src="images/bg_results_2_col.png" style="width:70%">
 					<p>We modify Road2Code to generate scenes for a variety of novel unseen scenarios, adjusting environment, weather conditions, and vehicle configurations.</p>
+					<img src="images/bg_results_2_col.png" style="width:70%">
 
+					<hr/>
 
-					<img src="images/distillation.png" style="width:70%">
+					<h2>Evaluation</h2>
 					<p>
-	We evaluate visual error of our model with and without Chain-of-Thought distillation. We find that distillation improves SSIM by 5.1% and reduces MSE by 47.1%, lowering
+	We evaluate the visual error of our model with and without Chain-of-Thought distillation. We find that distillation improves SSIM by 5.1% and reduces MSE by 47.1%, lowering
 errors across all metrics.
 					</p>
+					<img src="images/distillation.png" style="width:70%">
 
-					<img src="images/bbox_results.png" style="width:70%">
 					<p>Real-world traffic scenes are translated to simulation using Road2Code. The
 simulated vehicles closely match real-world agents, with high IoU scores,
 indicating strong alignment between simulated and real bounding boxes.</p>
+					<img src="images/bbox_results.png" style="width:70%">
 
 				</div>
 
-				<!-- <hr>
-				<div class="w3-row w3-margin" style="padding-bottom:2em">
-					<div class="w3-center">
-						<h2>Paper</h2>
-					</div>
-					<div class="w3-col s0 m1 l2" style="height:10px"></div>
-					<div class="w3-col s6 m3 l2">
-						<img class="layered-paper-big" src="images/page1.png" style="width:100%;min-height:200px; margin-right:3em">
-					</div>
-					<div class="w3-col s6 m7 l6" style="padding-left:5em">
-						<div class="cite">
-							Johnathan Leung, Guansen Tong, Parasara Sridhar Duggirala, Praneeth Chakravarthula
-							<i>From Road to Code: Neuro-Symbolic Program Synthesis for Autonomous Driving Scene Translation and Analysis</i>
-						</div>
-						<h3>[<a href="./paper.pdf">pdf</a>]</h3>
-
-					</div>
-					<div class="w3-col s0 m1 l2" style="height:10px"></div>
-				</div> -->
 				<hr>
 
 			<div class="w3-display-container w3-row w3-white w3-margin-bottom">
